@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sarah Sucha</title>
+    <meta name="description" content="Sarah Sucha's personal website"></meta>
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300' rel='stylesheet' type='text/css'>    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1><em>Sarah Sucha</em> is currently in <em>metamorphosis...</em></h1>
+        <h2>check back soon...</h2>
+        <!-- <ul>
+          <li><a href="https://www.linkedin.com/in/sarahsucha" target="_blank"</a></li>
+          <li><a href="https://twitter.com/SarahSucha" target="_blank"</a></li>
+        </ul> -->
+      </header>
+      <div id="escher">
+        <img id="mainImg" src="images/mainImg.jpg" alt="MC Escher's Metamorphasis in a moving gif" />
+        <p>MC Escher.<br><i>Metamorphosis III</i>.<br>1967-1968.</p>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script>
+      function moveImg(leftInPx) {
+        if (leftInPx > 9676) {
+          return;
+        }
+        leftInPx++;
+        $('#mainImg').css({left: -leftInPx});
+        function recursiveCallback() {
+          moveImg(leftInPx);
+        }
+        setTimeout(recursiveCallback, 5);
+      }
+      $(window).load(function() {
+          moveImg(0);
+      });
+    </script>
+  </body>
+</html>
