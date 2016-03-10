@@ -23,19 +23,22 @@
     </div>
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script>
-      function moveImg(leftInPx) {
-        if (leftInPx > 9676) {
-          return;
+      var PERSONAL_WEB = {
+        moveImg: function moveImg(leftInPx) {
+          if (leftInPx > 9676) {
+            return;
+          }
+          leftInPx++;
+          $('#mainImg').css({left: -leftInPx});
+          function recursiveCallback() {
+            moveImg(leftInPx);
+          }
+          setTimeout(recursiveCallback, 5);
         }
-        leftInPx++;
-        $('#mainImg').css({left: -leftInPx});
-        function recursiveCallback() {
-          moveImg(leftInPx);
-        }
-        setTimeout(recursiveCallback, 5);
-      }
+      };
+
       $(window).load(function() {
-          moveImg(0);
+          PERSONAL_WEB.moveImg(0);
       });
     </script>
   </body>
